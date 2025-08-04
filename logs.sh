@@ -24,9 +24,11 @@ VALIDATE(){
 dnf list installed python3
 if [$? -ne 0]
 then
+    dnf uninstall python3 -y
+
     echo "python3 is not installed, it is going to be installed"
     dnf install python3 -y
     VALIDATE $? "python3"
 else
-    echo "python3 is laredy nstalled so nothing to do now, Thank you"
+    echo "python3 is laredy installed so nothing to do now, Thank you"
 fi
