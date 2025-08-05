@@ -3,6 +3,15 @@
 user_id=$(id -u)
 echo $user_id
 
+LOG_FOLDER="var/log/shellscript-log"
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOG_FILE="LOG_FOLDER/SCRIPT_NAME.log"
+
+mkdir -p $LOG_FOLDER
+echo "script started executing at:$(date)" &>>$LOG_FILE
+
+
+
 if [$user_id -ne 0]
 then 
     echo "ERROR:: please run this with root access"
