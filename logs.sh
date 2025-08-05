@@ -8,7 +8,7 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="LOG_FOLDER/SCRIPT_NAME.log"
 
 mkdir -p $LOG_FOLDER
-echo "script started executing at:$(date)" &>>$LOG_FILE
+echo "script started executing at:$(date)" | tee -a $LOG_FILE
 
 
 
